@@ -1,7 +1,7 @@
 package com.example.firstproj.services;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.example.firstproj.dataclass.Game;
 import com.example.firstproj.repositories.GameRepository;
@@ -11,31 +11,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class GameService {
 
-
-    List<Game> gameList;
-
-    public GameService() {
-        this.gameList = createGAmeList();
-    }
-
-    private List<Game> createGAmeList() {
-        return new ArrayList<>(List.of(new Game("GTA V", 4000, 99.8), new Game("GTA IV", 3000, 9.8), new Game("God of war", 4000, 85.5), new Game("NFS", 2000, 20.4)));
-
-    }
     @Autowired
-    public GameRepository gr;
+    private GameRepository gameRepository;
 
     public List<Game> getGames() {
-        return gr.findAll();
+        return gameRepository.findAll();
     }
 
     public Game getGameByName(String name) {
-
-        return gameList.stream().filter(p -> p.getName().equalsIgnoreCase(name)).findFirst().get();
+        Optional<Game> game = gameRepository.findByNameIgnoreCase(name);
+        return game.orElse(null); // or throw custom exception if preferred
     }
 
-    public void addGame(Game gme) {
-       gr.save(gme);
+    public void addGame(Game game) {
+        gameRepository.save(game);
     }
 
+    public void updateGame(Game game) {
+        gameRepository.save(game);
+    }
 }

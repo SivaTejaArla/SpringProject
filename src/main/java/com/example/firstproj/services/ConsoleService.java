@@ -25,6 +25,7 @@ public List<Consoles> consolesList;
     public ConsoleRepository cr;
 
     public List<Consoles> getConsolesList(){
+
         return cr.findAll();
     }
 

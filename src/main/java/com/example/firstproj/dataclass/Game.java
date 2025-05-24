@@ -3,10 +3,13 @@ package com.example.firstproj.dataclass;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.annotation.processing.Generated;
+
 @Document(collection = "games")
 public class Game {
 
     @Id
+    private String id;
     private String name ;
     private int price ;
     private  double size ;
