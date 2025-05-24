@@ -7,7 +7,7 @@ A basic Spring Boot project using MongoDB.
 ````
 git init                            # Initialize the repository
 git add .gitignore                  # Add the .gitignore file
-git add .                           # Add all files
+git add .                            # Add all files
 git commit -m "message"            # Commit changes
 git remote add origin <URL>        # Add remote origin
 git remote -v                      # Verify the remote URL
