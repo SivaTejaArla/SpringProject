@@ -14,4 +14,4 @@ git remote -v                      # Verify the remote URL
 git branch -M main                 # Rename current branch to main
 git pull origin main --rebase     # Pull remote changes with rebase
 git rebase --continue              # Continue rebase if needed
-git push origin main               # Push to remote repository
+git push origin main                  # Push to remote repository
